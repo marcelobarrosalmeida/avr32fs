@@ -1,0 +1,46 @@
+#!/bin/sh
+
+NMBD=`which nmbd`
+SMBD=`which smbd`
+WINBINDD=`which winbindd`
+
+echo -n " * starting nmbd ...             "
+if [ ! -x "${NMBD}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${NMBD} -D; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo -n " * starting smbd ...             "
+if [ ! -x "${SMBD}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${SMBD} -D; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo -n " * starting winbindd ...         "
+if [ ! -x "${WINBINDD}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${WINBINDD}; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0

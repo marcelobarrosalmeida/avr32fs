@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <package name="busybox" version="&busybox-version;">
+    <stage name="Unpacking">
+      <unpack>
+        <reference>&repository_url;/&busybox-package;</reference>
+        <archive>&packages_dir;/busybox/&busybox-package;</archive>
+        <destination>&build_dir;</destination>
+      </unpack>
+    </stage>
+    <stage name="Patching">
+      <stageinfo>
+	      <base>&build_dir;/&busybox-directory;</base>
+      </stageinfo>
+      <patch>
+      <param>-p1</param>
+      <param>-i &packages_dir;/busybox/&busybox-install-should-unlink-dest-if-it-exists-patch;</param>
+      </patch>
+    </stage>
+    <stage name="Compiling">
+      <stageinfo>
+        <base>&build_dir;/&busybox-directory;</base>
+      </stageinfo>
+      <copy>
+        <option>force</option>
+        <source>&packages_dir;/busybox/busybox-dot-config</source>
+        <destination>.config</destination>
+      </copy>
+      <make>
+        <param>oldconfig</param>
+      </make>
+    </stage>
+    <stage name="Installing">
+      <stageinfo>
+        <base>&build_dir;/&busybox-directory;</base>
+      </stageinfo>
+      <make>
+        <param>install</param>
+        <param>PREFIX=&root_dir;/</param>
+      </make>
+    </stage>
+    <!--
+    <stage name="Strip">
+      <remove>&build_dir;/&busybox-directory;</remove>
+    </stage>
+    -->
+    <!--
+    <stage name="Cleanup">
+      <remove>&build_dir;/&busybox-directory;</remove>
+    </stage>
+    -->
+  </package>
+</alfs>

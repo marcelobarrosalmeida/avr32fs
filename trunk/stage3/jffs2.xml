@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+
+%general_entities;
+]>
+<alfs>
+  <execute command="mkfs.jffs2">
+    <param>--output=&base_dir;/ngw-&root_version;.jffs2.img</param>
+    <param>--root=&root_dir;</param>
+    <param>--pagesize=4096</param>
+    <param>--eraseblock=65536</param>
+    <param>--big-endian</param>
+  </execute>
+</alfs>

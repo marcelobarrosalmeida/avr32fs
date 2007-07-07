@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <package name="linux" version="&linux-version;">
+    <stage name="Unpacking">
+      <unpack>
+        <reference>&repository_url;/&linux-package;</reference>
+        <archive>&packages_dir;/linux/&linux-package;</archive>
+        <destination>&build_dir;</destination>
+      </unpack>
+    </stage>
+    <stage name="Patching">
+      <stageinfo>
+	      <base>&build_dir;/&linux-directory;</base>
+      </stageinfo>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-version-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-flush_buffer-operation-to-uart_ops-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-kbuild-add-unifdef-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-kbuild-replace-use-of-strlcpy-with-a-dedicated-implmentation-in-unifdef-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-kbuild-use-in-kernel-unifdef-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-spi-set-kset-of-master-class-dev-explicitly-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-spi-fix-spi-busnum-to-master-buffer-and-bus_num-0-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usb-ethernet-align-all-descriptors-on-a-word-boundary-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usb-ethernet-define-cdc-capability-for-husb2-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usb-file-storage-align-all-descriptors-on-a-word-boundary-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usb-serial-align-all-descriptors-on-a-word-boundary-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usb-zero-align-all-descriptors-on-a-word-boundary-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-dont-include-map-h-from-physmap-h-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mtd-unlock-nor-flash-automatically-where-necessary-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-arch-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-dont-include-asm-delay-h-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-unistd-h-move-ifdef-kernel-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-checkstack-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-oprofile-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-drop-GFP_COMP-for-DMA-memory-allocations-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-move-ethernet-tag-parsing-to-board-specific-code-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-dma-controller-framework-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-arch-neutral-gpio-api-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-mach-specific-kconfig-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-gpio-dev-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-usart3-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-macb-ethernet-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-at32ap7000-dmac-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-mmc-host-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-spi-master-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-twi-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-lcdc-framebuffer-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-lcdc-wait-for-vsync-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-ltv350qv-lcd-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-husb2-udc-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-sound-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-ac97c-alsa-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-at73c213-alsa-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-at32-dac-oss-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-renumber-usart-devices-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-rename-ttyUS-to-ttyS-or-ttyAT-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-at32-dac-oss-driver-clk-fix-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-all-parameters-to-smc-driver-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-at32ap7000-platform_device-definitions-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atstk1000-instantiate-devices-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-hmatrix-support-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-ide-header-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-network-gateway-support-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-ngw-fix-usart-initialization-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-little-endian-read-write-bwl-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-gpio-dev-robustness-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-intc_pending_irq-to-intc-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-update-atstk1002_defconfig-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-fix-usart3-rx-BUG-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-fix-lcd-display-off-by-two-problem-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-fix-alpha-color-bitfield-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-jffs2_can_mark_obsolete-should-return-0-for-dataflash-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mtd-fix-atmel-pri-for-cmdset-0001-and-cmdset-0002-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-fix-gpio-prototypes-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-pio-deglitch-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-pio-interrupt-controller-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-gpio-dev-blocking-read-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-add-default-atngw-defconfig-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-gpio-define-pio-none-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mmc-add-platform-data-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-ngw100-change-spi-clock-on-dataflash-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atstk1000-add-platform-data-for-mmc-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-increment-pointer-when-parsing-for-fbmem_start-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-lcdc-do-not-clear-mem-if-fbmem_start-is-set-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-fix-oprofile-interrupts-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-avr32-time-add-shared-interrupts-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-usart-make-rx-timeout-baudrate-independent-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-spi-reduce-dlybs-and-dlybct-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-dmac-stopping-idle-channel-is-not-fatal-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mmc-core-dma-fix-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atstk1000-board-fix-fbmem-setup-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-lcdc-fix-possible-null-pointer-and-match-guard-time-to-uboot-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-ltv350qv-add-initial_power_state-param-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-mci-debugfs-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-dmac-add-explicit-blockcount-to-dma_request_sg-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel-mci-init-nr_blocks-in-dma-request-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mmc-add-bit-manipulating-macros-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-mmc-add-detect-card-and-wp-support-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel_spi-handle-rx-overrun-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-atmel_spi-send-zeroes-when-tx_buf-is-not-set-patch;</param>
+      </patch>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/linux/&linux-husb2_udc-test-mode-patch;</param>
+      </patch>
+    </stage>
+    <stage name="Compiling">
+      <stageinfo>
+        <base>&build_dir;/&linux-directory;</base>
+      </stageinfo>
+      <!-- update version ! -->
+      <make>
+        <param>ARCH=avr32</param>
+        <param>KBUILD_HAVE_NLS=&kbuild_have_nls;</param>
+        <param>atngw_defconfig</param>
+      </make>
+      <make>
+        <param>ARCH=avr32</param>
+        <param>CROSS_COMPILE=avr32-linux-</param>
+        <param>KBUILD_HAVE_NLS=&kbuild_have_nls;</param>
+      </make>
+    </stage>
+    <stage name="Installing">
+      <stageinfo>
+	      <base>&build_dir;/&linux-directory;</base>
+      </stageinfo>
+      <copy>
+        <option>force</option>
+        <source>arch/avr32/boot/images/uImage</source>
+        <destination>&root_dir;/</destination>
+      </copy>
+      <make>
+        <param>modules_install</param>
+        <param>ARCH=avr32</param>
+        <param>CROSS_COMPILE=avr32-linux-</param>
+        <param>KBUILD_HAVE_NLS=&kbuild_have_nls;</param>
+        <param>INSTALL_MOD_PATH=&root_dir;/</param>
+      </make>
+    </stage>
+    <!--
+    <stage name="Strip">
+      <remove>&build_dir;/&linux-directory;</remove>
+    </stage>
+    -->
+    <!--
+    <stage name="Cleanup">
+      <remove>&build_dir;/&linux-directory;</remove>
+    </stage>
+    -->
+  </package>
+</alfs>

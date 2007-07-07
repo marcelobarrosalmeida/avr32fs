@@ -1,0 +1,53 @@
+#!/bin/sh
+
+DROPBEAR=`which dropbear`
+DROPBEARKEY=`which dropbearkey`
+
+if [ ! -f "/etc/dropbear/dropbear_rsa_host_key" ]; then
+	echo -n " * generate SSH RSA key ...      "
+
+	if [ ! -x "${DROPBEARKEY}" ]; then
+		echo "[ MISSING ]"
+		exit 1
+	fi
+
+	if ${DROPBEARKEY} -t rsa \
+		-f /etc/dropbear/dropbear_rsa_host_key \
+		-s 1024 > /dev/null 2> /dev/null; then
+		echo "[ OK ]"
+	else
+		echo "[ FAILED ]"
+	fi
+fi
+
+if [ ! -f "/etc/dropbear/dropbear_dss_host_key" ]; then
+	echo -n " * generate SSH DSS key ...      "
+
+	if [ ! -x "${DROPBEARKEY}" ]; then
+		echo "[ MISSING ]"
+		exit 1
+	fi
+
+	if ${DROPBEARKEY} -t dss \
+		-f /etc/dropbear/dropbear_dss_host_key \
+		-s 1024 > /dev/null 2> /dev/null; then
+		echo "[ OK ]"
+	else
+		echo "[ FAILED ]"
+	fi
+fi
+
+echo -n " * starting dropbear ...         "
+if [ ! -x "${DROPBEAR}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${DROPBEAR} > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0

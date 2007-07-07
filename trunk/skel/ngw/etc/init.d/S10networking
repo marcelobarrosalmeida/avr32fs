@@ -1,0 +1,55 @@
+#!/bin/sh
+
+UDHCPC=`which udhcpc`
+IFCONFIG=`which ifconfig`
+
+echo -n " * setup eth0 ...                "
+if [  ]; then
+if [ ! -x "${UDHCPC}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${UDHCPC} -n -i eth0 > /dev/null 2> /dev/null; then
+	IPADDR=`ifconfig eth0 | grep 'inet addr' | awk '{print $2}' | sed -e 's/.*://'`
+	echo "[ OK ] ($IPADDR)"
+else
+	if ${IFCONFIG} eth0 10.11.12.1 netmask 255.255.255.0 > /dev/null 2> /dev/null; then
+		IPADDR=`ifconfig eth0 | grep 'inet addr' | awk '{print $2}' | sed -e 's/.*://'`
+		echo "[ STATIC ] ($IPADDR)"
+	else
+		echo "[ FAILED ]"
+		exit 1
+	fi
+fi
+
+else
+echo -n " * setup eth0 ...                "
+if [ ! -x "${IFCONFIG}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${IFCONFIG} eth0 10.0.1.1 netmask 255.255.255.0 > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+fi
+
+echo -n " * setup eth1 ...                "
+if [ ! -x "${IFCONFIG}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${IFCONFIG} eth1 10.0.0.1 netmask 255.255.255.0 > /dev/null 2> /dev/null; then
+	route add default gw 10.0.0.10
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0

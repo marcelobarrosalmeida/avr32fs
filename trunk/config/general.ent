@@ -1,0 +1,37 @@
+<!-- 
+	AVR32 BUILD SYSTEM
+-->
+
+<!-- Root version -->
+<!ENTITY root_version "0.0.1">
+
+<!-- Specify where profile file is located -->
+<!ENTITY base_dir "/home/barros/Desktop/trabalhos/avr32/LFS/avr32">
+
+<!-- Specify where root file system will be created -->
+<!ENTITY root_dir "&base_dir;/root/&root_version;">
+
+<!-- Specify where software repository is located -->
+<!ENTITY packages_dir "/media/cdrom0/software">
+
+<!-- Specify alternative URL (for wget) if packages_dir fails -->
+<!ENTITY repository_url "file://&packages_dir;">
+
+<!-- Specify where packages will be compiled -->
+<!ENTITY build_dir "&base_dir;/build/&root_version;">
+
+<!-- Specify where skeleton is located -->
+<!ENTITY skel_dir "&base_dir;/skel/ngw">
+
+<!-- Specify where linux includes are located -->
+<!ENTITY kernel_src "/usr/avr32-linux">
+
+<!-- no: cygwin, yes: linux -->
+<!ENTITY kbuild_have_nls "yes">
+
+<!-- Define board hostname -->
+<!ENTITY hostname "ngw">
+
+<!-- Define board domain name  -->
+<!ENTITY domain "example.net">
+

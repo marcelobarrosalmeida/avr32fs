@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <stage name="Basic skeleton">
+    <remove>&root_dir;</remove>
+    <remove>&build_dir;</remove>
+    <mkdir>
+      <option>parents</option>
+      <name>&root_dir;</name>
+    </mkdir>
+    <mkdir>
+      <option>parents</option>
+      <name>&build_dir;</name>
+    </mkdir>
+    <mkdir base="&root_dir;">
+      <option>parents</option>
+      <name>bin</name>
+      <name>boot</name>
+      <name>dev</name>
+      <name>home/avr32</name>
+      <name>home/ftp</name>
+      <name>lib</name>
+      <name>media/dataflash</name>
+      <name>media/sdcard</name>
+      <name>mnt</name>
+      <name>proc</name>
+      <name>root</name>
+      <name>sbin</name>
+      <name>sys</name>
+      <name>tmp</name>
+      <name>usr</name>
+      <name>var</name>
+      <name>etc</name>
+      <name>config</name>
+    </mkdir>
+    <mkdir base="&root_dir;/etc">
+      <option>parents</option>
+      <name>init.d</name>
+      <name>network</name>
+      <name>default</name>
+    </mkdir>
+    <mkdir base="&root_dir;/dev">
+      <option>parents</option>
+      <name>pts</name>
+      <name>chm</name>
+    </mkdir>
+    <mkdir base="&root_dir;/usr">
+      <option>parents</option>
+      <name>bin</name>
+      <name>include</name>
+      <name>lib</name>
+      <name>sbin</name>
+      <name>share</name>
+      <name>src</name>
+    </mkdir>
+    <mkdir base="&root_dir;/usr/share">
+      <option>parents</option>
+      <name>doc</name>
+      <name>info</name>
+      <name>locale</name>
+      <name>man</name>
+      <name>misc</name>
+      <name>terminfo</name>
+      <name>zoneinfo</name>
+    </mkdir>
+    <mkdir base="&root_dir;/usr/share/man">
+      <option>parents</option>
+      <name>man1</name>
+      <name>man2</name>
+      <name>man3</name>
+      <name>man4</name>
+      <name>man5</name>
+      <name>man6</name>
+      <name>man7</name>
+      <name>man8</name>
+    </mkdir>
+    <mkdir base="&root_dir;/var">
+      <option>parents</option>
+      <name>lock</name>
+      <name>log</name>
+      <name>mail</name>
+      <name>run</name>
+      <name>spool</name>
+      <name>tmp</name>
+      <name>cache</name>
+      <name>lib/misc</name>
+      <name>www</name>
+    </mkdir>
+    <permissions base="&root_dir;" mode="0750">
+      <name>root</name>
+    </permissions>
+    <permissions base="&root_dir;" mode="1777">
+      <name>tmp</name>
+      <name>var/tmp</name>
+    </permissions>
+  </stage>
+</alfs>

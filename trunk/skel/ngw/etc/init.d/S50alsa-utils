@@ -1,0 +1,19 @@
+#!/bin/sh
+
+PROGRAM=`which alsactl`
+PROGARGS="restore"
+
+echo -n " * starting alsa-utils ...       "
+if [ ! -x "${PROGRAM}" -o ! -f /etc/asound.state ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${PROGRAM} ${PROGARGS} > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0
