@@ -6,7 +6,7 @@
 <!ENTITY root_version "0.0.1">
 
 <!-- Specify where profile file is located -->
-<!ENTITY base_dir "/home/barros/Desktop/trabalhos/avr32/LFS/avr32">
+<!ENTITY base_dir "/home/barros/Desktop/trabalhos/avr32/LFS/avr32fs">
 
 <!-- Specify where root file system will be created -->
 <!ENTITY root_dir "&base_dir;/root/&root_version;">
