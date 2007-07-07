@@ -1,6 +1,6 @@
-#summary usage instructions for avr32fs
+#summary Usage instructions for avr32fs
 
-= Before using avr32fs =
+=== Before using avr32fs ===
 
   * Install nALFS. The current profile was tested  using nALFS 1.2.6, downloaded from: http://www.linuxfromscratch.org/alfs/downloads/stable/nALFS-1.2.6.tar.bz2
   * A copy of directory software, provided by Atmel in NGW100 BSP CD is necessary. 
@@ -8,7 +8,7 @@
   * AVR32 GCC compiler must be working properly. Use NGW100 BSP CD for installing it.
   * Install mtd_utils.
 
-== Configuring avr32fs ==
+=== Configuring avr32fs ===
 
 Open config/general.ent and set the following values:
 
@@ -21,13 +21,13 @@ Open config/general.ent and set the following values:
 
 In this version there is only one skel directory. More may appear in future.
 
-== Running avr32fs ==
+=== Running avr32fs ===
 
   * <path_to>/nALFS  ngw.xml
   * press 's' and 'f' and wait (use '?' for more options)
   * an jffs2 image file will be created at base_dir
 
-== Limitations ==
+=== Limitations ===
 
   * just some packages supported at this moment (busybox, zlib, dropbear, uclibc and linux). More are coming.
   * just one skel file with some missing etc files (I need to configure better the skel's contents)
@@ -35,7 +35,7 @@ In this version there is only one skel directory. More may appear in future.
   * sudo is necessary (devices inside /dev/ requires root privileges)
   * poor documentation
 
-== Some technical details ==
+=== Some technical details ===
 
   * We have 3 stages now: root structure generation, packages compilation/install, image generation. Files related to each state are placed inside stage[1-3].
   * All packages and its patches are listed inside config/package.ent
