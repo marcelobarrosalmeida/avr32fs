@@ -3,8 +3,7 @@
 === Before using avr32fs ===
 
   * Install nALFS. The current profile was tested  using nALFS 1.2.6, downloaded from: http://www.linuxfromscratch.org/alfs/downloads/stable/nALFS-1.2.6.tar.bz2
-  * A copy of directory software, provided by Atmel in NGW100 BSP CD is necessary. 
-   It was used the following ISO image: http://www.atmel.com/dyn/resources/prod_documents/AVR32_Linux_BSP_CD_Image_2.0.0.iso
+  * A copy of directory software, provided by Atmel in NGW100 BSP CD is necessary. It was used the following ISO image: http://www.atmel.com/dyn/resources/prod_documents/AVR32_Linux_BSP_CD_Image_2.0.0.iso
   * AVR32 GCC compiler must be working properly. Use NGW100 BSP CD for installing it.
   * Install mtd_utils.
 
@@ -41,7 +40,6 @@ In this version there is only one skel directory. More may appear in future.
   * All packages and its patches are listed inside config/package.ent
   * Scripts/series2xml.py may help conversion from series (patch files list) to xml
   * Read nALFS DTD documentation for creating/modifying xml: http://www.linuxfromscratch.org/alfs/view/dtd/
-
 
 
 
