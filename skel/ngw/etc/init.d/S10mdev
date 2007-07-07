@@ -1,0 +1,26 @@
+#!/bin/sh
+
+MDEV=`which mdev`
+
+echo -n " * set mdev hotplug ...          "
+if [ ! -x "${MDEV}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if echo "${MDEV}" > /proc/sys/kernel/hotplug; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo -n " * mdev ...                      "
+if ${MDEV} -s > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0

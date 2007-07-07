@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo -n " * mounting filesystems:         "
+if mount /usr > /dev/null 2> /dev/null; then
+	echo -n "/usr "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo
+exit 0

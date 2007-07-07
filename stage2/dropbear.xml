@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <package name="dropbear" version="&dropbear-version;">
+    <stage name="Unpacking">
+      <unpack>
+        <reference>&repository_url;/&dropbear-package;</reference>
+        <archive>&packages_dir;/dropbear/&dropbear-package;</archive>
+        <destination>&build_dir;</destination>
+      </unpack>
+    </stage>
+    <stage name="Patching">
+      <stageinfo>
+        <base>&build_dir;/&dropbear-directory;</base>
+      </stageinfo>
+      <patch>
+        <param>-p1</param>
+        <param>-i &packages_dir;/dropbear/&dropbear-dropbear-add-avr32-to-configure-patch;</param>
+      </patch>
+    </stage>
+    <stage name="Compiling">
+      <stageinfo>
+        <base>&build_dir;/&dropbear-directory;</base>
+        <environment>
+          <variable name="CFLAGS">-O2</variable>
+        </environment>
+      </stageinfo>
+      <configure>
+        <param>--prefix=/usr</param>
+        <param>--host=avr32-linux</param>
+      </configure>
+      <make>
+        <param>PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp"</param>
+      </make>
+    </stage>
+    <stage name="Installing">
+      <stageinfo>
+        <base>&build_dir;/&dropbear-directory;</base>
+      </stageinfo>
+      <make>
+        <param>install</param>
+        <param>PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp"</param>
+        <param>DESTDIR=&root_dir;/</param>
+      </make>
+    </stage>
+    <!--
+    <stage name="Strip">
+      <remove>&build_dir;/&dropbear-directory;</remove>
+    </stage>
+    -->
+    <!--
+    <stage name="Cleanup">
+      <remove>&build_dir;/&dropbear-directory;</remove>
+    </stage>
+    -->
+  </package>
+</alfs>

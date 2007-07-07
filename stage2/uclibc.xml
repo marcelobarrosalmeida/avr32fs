@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <package name="uclibc" version="&uclibc-version;">
+    <stage name="Unpacking">
+      <unpack>
+        <reference>&repository_url;/&uclibc-package;</reference>
+        <archive>&packages_dir;/uclibc/&uclibc-package;</archive>
+        <destination>&build_dir;</destination>
+      </unpack>
+    </stage>
+    <stage name="Patching">
+      <stageinfo>
+	      <base>&build_dir;/&uclibc-directory;</base>
+      </stageinfo>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-uclibc-makefile-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-remove-bogus-version-hack-and-just-use-asm-generic-if-it-exists-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-let-optimized-stringops-override-default-ones-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-fix-getrusage-argument-type-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-fix-__libc_fcntl64-varargs-prototype-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-fix-broken-__libc_open-declaration-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-avr32-arch-2-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-avr32-linkrelax-option-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-avr32-string-ops-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-no-create_module-on-avr32-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-always-inline-_dl_memcpy-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-define-MAP_FAILED-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-always-inline-syscalls-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-avr32-2-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-avr32-needs-CONSTANT_STRING_GOT_FIXUP-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldso-avr32-startup-hack-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-ldd-ldd-avr32-support-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-libpthread-avr32-patch;</param>
+      </patch>
+      <patch>
+      	<param>-p1</param>
+      	<param>-i &packages_dir;/uclibc/&uclibc-sync-fcntl-h-with-linux-kernel-patch;</param>
+      </patch>
+    </stage>
+    <stage name="Compiling">
+      <stageinfo>
+        <base>&build_dir;/&uclibc-directory;</base>
+      </stageinfo>
+      <copy>
+        <option>force</option>
+        <source>&packages_dir;/uclibc/uClibc-dot-config</source>
+        <destination>.config</destination>
+      </copy>
+      <make>
+        <param>oldconfig</param>
+      </make>
+      <make>
+        <param>KERNEL_SOURCE=&kernel_src;</param>
+      </make>
+    </stage>
+    <stage name="Installing">
+      <stageinfo>
+        <base>&build_dir;/&uclibc-directory;</base>
+      </stageinfo>
+      <make>
+        <param>install_runtime</param>
+        <param>DESTDIR=&root_dir;</param>
+      </make>
+    </stage>
+    <!--
+    <stage name="Strip">
+      <remove>&build_dir;/&uclibc-directory;</remove>
+    </stage>
+    -->
+    <!--
+    <stage name="Cleanup">
+      <remove>&build_dir;/&uclibc-directory;</remove>
+    </stage>
+    -->
+  </package>
+</alfs>

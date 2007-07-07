@@ -1,0 +1,31 @@
+#!/bin/sh
+
+/etc/init.d/S01mountvirtfs
+/etc/init.d/S08loopback
+/etc/init.d/S09syslog
+/etc/init.d/S09klog
+/etc/init.d/S10mdev
+/etc/init.d/S10modules-init
+
+/etc/init.d/S99fbset
+/etc/init.d/S99bootsplash
+
+if /etc/init.d/S10dhcp; then
+	echo " * network ...                   [ OK ]"
+	/etc/init.d/S20telnet
+	/etc/init.d/S20inetd
+	/etc/init.d/S91httpd
+        /etc/init.d/S20ssh
+else
+	echo " * Network ...                   [ FAILED ]"
+fi
+
+/etc/init.d/S50alsa-utils
+/etc/init.d/S99gpio
+/etc/init.d/S99splash
+
+echo
+echo "STK1000 ready"
+echo
+
+exit 0

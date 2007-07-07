@@ -1,0 +1,20 @@
+#!/bin/sh
+
+IFCONFIG=`which ifconfig`
+
+# We always want the loopback device (localhost) to be available.
+echo -n " * network loopback ...          "
+if [ ! -x "${IFCONFIG}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${IFCONFIG} lo 127.0.0.1 > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0
+

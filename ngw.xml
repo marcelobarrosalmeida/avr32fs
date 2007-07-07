@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	AVR32 Build System
+-->
+<!DOCTYPE alfs SYSTEM "DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "config/general.ent">
+%general_entities;
+]>
+<alfs version="3.1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <stage name="Stage 1: creating file system skeleton">
+    <xi:include href="stage1/skeleton.xml" />
+    <xi:include href="stage1/etcfiles.xml" />
+    <xi:include href="stage1/devfiles.xml" />
+    <xi:include href="stage1/rcfiles.xml"  />
+  </stage>
+  <stage name="Stage 2: compiling packages">
+    <xi:include href="stage2/uclibc.xml" />
+    <xi:include href="stage2/linux.xml" />
+    <xi:include href="stage2/busybox.xml" />
+    <xi:include href="stage2/zlib.xml" />
+    <xi:include href="stage2/dropbear.xml" />
+  </stage>
+  <stage name="Stage 3: creating image">
+    <xi:include href="stage3/jffs2.xml" />
+  </stage>
+</alfs>

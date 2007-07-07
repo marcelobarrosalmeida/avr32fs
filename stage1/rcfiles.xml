@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <stage name="rc files">
+    <stageinfo>
+      <base>&root_dir;/etc/init.d</base>
+    </stageinfo>
+    <!-- =================================================================== -->
+    <textdump>
+      <file>rcS</file>
+        <content>
+#!/bin/sh
+
+/etc/init.d/S01mountvirtfs
+/etc/init.d/S02hostname
+/etc/init.d/S08loopback
+/etc/init.d/S09syslog
+/etc/init.d/S09klog
+/etc/init.d/S10mdev
+/etc/init.d/S10modules-init
+/etc/init.d/S35mountall
+
+if /etc/init.d/S10networking; then
+	echo " * network ...                   [ OK ]"
+	/etc/init.d/S11iptables
+#	/etc/init.d/S15dnsmasq
+#	/etc/init.d/S23ntp
+	/etc/init.d/S20ssh
+#	/etc/init.d/S20telnet
+	/etc/init.d/S20inetd
+#	/etc/init.d/S20samba
+#	/etc/init.d/S91httpd
+else
+	echo " * Network ...                   [ FAILED ]"
+fi
+
+/etc/init.d/S99gpio
+
+echo
+echo "Network Gateway ready"
+echo
+
+exit 0
+        </content>
+    </textdump>
+    <!-- =================================================================== -->
+    <copy>
+      <option>archive</option>
+      <source>&skel_dir;/etc/init.d/*</source>
+      <destination>.</destination>
+    </copy>
+    <ownership user="root" group="root">
+      <name>*</name>
+    </ownership>
+    <permissions mode="0755">
+      <name>*</name>
+    </permissions>
+  </stage>
+</alfs>

@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# The script first tries to obtain an address by DHCP, if DHCP fails
+# the network wil be set to 10.0.0.1 and the DHCP server is started.
+
+UDHCPC=`which udhcpc`
+IFCONFIG=`which ifconfig`
+
+echo -n " * setup eth0 (dhcp) ...         "
+if [ ! -x "${UDHCPC}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${UDHCPC} -i eth0 > /dev/null 2> /dev/null; then
+	IPADDR=`ifconfig eth0 | grep 'inet addr' | awk '{print $2}' | sed -e 's/.*://'`
+	echo "[ OK ] ($IPADDR)"
+else
+	echo "[ FAILED ]"
+
+	echo -n " * setup eth0 (static) ...   "
+	if [ ! -x "${IFCONFIG}" ]; then
+		echo "[ MISSING ]"
+		exit 1
+	fi
+
+	if ${IFCONFIG} eth0 10.0.0.1 netmask 255.255.255.0 > /dev/null 2> /dev/null; then
+		IPADDR=`ifconfig eth0 | grep 'inet addr' | awk '{print $2}' | sed -e 's/.*://'`
+		echo "[ OK ] ($IPADDR)"
+		/etc/init.d/S15dnsmasq
+	else
+		echo "[ FAILED ]"
+		exit 1
+	fi
+fi
+
+exit 0

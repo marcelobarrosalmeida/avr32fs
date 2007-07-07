@@ -1,0 +1,19 @@
+#!/bin/sh
+
+PROGRAM=`which fbset`
+PROGARGS="-depth 32"
+
+echo -n " * starting fbset ...            "
+if [ ! -x "${PROGRAM}" ]; then
+	echo "[ MISSING ]"
+	exit 1
+fi
+
+if ${PROGRAM} ${PROGARGS} > /dev/null 2> /dev/null; then
+	echo "[ OK ]"
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+exit 0

@@ -1,0 +1,69 @@
+#!/bin/sh
+
+echo -n " * mounting virtual filesystems: "
+if mount /proc > /dev/null 2> /dev/null; then
+	echo -n "/proc "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mount /sys > /dev/null 2> /dev/null; then
+	echo -n "/sys "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mount /dev/pts > /dev/null 2> /dev/null; then
+	echo -n "/dev/pts "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mount /dev/shm > /dev/null 2> /dev/null; then
+	echo -n "/dev/shm "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mount /config > /dev/null 2> /dev/null; then
+	echo -n "/config "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+
+if mount /var/log > /dev/null 2> /dev/null; then
+	echo -n "/var/log "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mkdir /var/log/samba > /dev/null 2> /dev/null; then
+	echo -n "/var/log/samba "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mkdir /var/log/ntpstats > /dev/null 2> /dev/null; then
+	echo -n "/var/log/ntpstats "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+if mount /tmp > /dev/null 2> /dev/null; then
+	echo -n "/tmp "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo
+exit 0
