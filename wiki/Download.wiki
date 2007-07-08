@@ -1,5 +1,5 @@
 == Download ==
 
-No packages yet, please use svn:
+  * Latest build: [http://avr32fs.googlecode.com/files/avr32fs-20070708.tar.gz avr32fs-20070708.tar.gz]
+  * SVN: `svn checkout http://avr32fs.googlecode.com/svn/trunk/ avr32fs`
 
-`svn checkout http://avr32fs.googlecode.com/svn/trunk/ avr32fs`
