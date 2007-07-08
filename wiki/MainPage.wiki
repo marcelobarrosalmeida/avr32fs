@@ -1,3 +1,5 @@
+#summary Wiki main page
+
 = avr32fs =
 
 AVR32 from Scratch Build System (avr32fs) uses nALFS to automate the process of creating root images for AVR32 boards.
