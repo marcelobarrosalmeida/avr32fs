@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Frequent Answered Questions
 
   * *Why avr32fs ?* 
 Before my own solution, I tried latest buildroot (compilation problems for avr32) and T2 (problems as well, not solved by T2 team yet, according to some emails I exchange with the team).
@@ -13,5 +13,4 @@ For instance, if you decide to change fstab, just copy stage1/etcfiles.xml (e.g.
 Take a look at nAFLS interface and you understand what I am saying when you start to browse the project nodes. 
   * *Who ?*
 My name is Marcelo Barros de Almeida. I am interested in embedded Linux, networking administration, Linux servers, Pyhton and C programming. I received BS in Electrical Engineering at UNIFEI (Itajubá/MG - Brazil, 1996) and master/doctor degrees at Federal University of Minas Gerais (Belo Horizonte/MG - Brazil, 1998 and 2002 respectively). At that time, my research was related to intelligence computational, including support vector machines and neural networks. Currently, I am working as a research and development electrical engineer at Smar Equipamentos Industriais LTDA, located at Sertãozinho/SP - Brazil.
-
 
