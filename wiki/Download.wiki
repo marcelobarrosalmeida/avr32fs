@@ -2,10 +2,14 @@
 
 == Packages ==
 
-  * Latest build: [http://avr32fs.googlecode.com/files/avr32fs-20070708.tar.gz avr32fs-20070708.tar.gz]
+  * Latest build: [http://avr32fs.googlecode.com/files/avr32fs-current.tar.gz avr32fs-current.tar.gz]
 
 == SVN access ==
 
   * anonymous access: `svn checkout http://avr32fs.googlecode.com/svn/trunk/ avr32fs`
 
 If you want to contribute, please get in touch and request write access to the repository.
+
+  * write access: `svn checkout https://avr32fs.googlecode.com/svn/trunk/ avr32fs --username your_user_name`
+
+When prompted, enter your generated googlecode.com password.
