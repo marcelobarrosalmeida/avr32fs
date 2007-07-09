@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo -n " * mounting sdcard:              "
+if mount /media/sdcard > /dev/null 2> /dev/null; then
+	echo -n "/media/sdcard "
+else
+	echo "[ FAILED ]"
+	exit 1
+fi
+
+echo
+exit 0

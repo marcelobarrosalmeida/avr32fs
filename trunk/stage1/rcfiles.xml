@@ -25,7 +25,8 @@
           =/etc/init.d/S09klog
           =/etc/init.d/S10mdev
           =/etc/init.d/S10modules-init
-          =/etc/init.d/S35mountall
+          =/etc/init.d/S35mountcard
+          =#/etc/init.d/S35mountall
           =
           =if /etc/init.d/S10networking; then
           =	echo " * network ...                   [ OK ]"

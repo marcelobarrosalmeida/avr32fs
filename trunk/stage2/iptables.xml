@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE alfs SYSTEM "../DTD/ALFS.dtd"
+[
+<!ENTITY % general_entities SYSTEM "../config/general.ent">
+<!ENTITY % package_entities SYSTEM "../config/package.ent">
+
+%general_entities;
+%package_entities;
+]>
+<alfs>
+  <package name="iptables" version="&iptables-version;">
+    <stage name="Downloading">
+      <download>
+        <file>&iptables-package;</file>
+        <url>&iptables-url;</url>
+        <destination>&download_dir;</destination>
+      </download>
+    </stage>
+    <stage name="Unpacking">
+      <unpack>
+        <archive>&download_dir;/&iptables-package;</archive>
+        <destination>&build_dir;</destination>
+      </unpack>
+    </stage>
+    <stage name="Patching" />
+    <stage name="Compiling">
+      <stageinfo>
+        <base>&build_dir;/&iptables-directory;</base>
+      </stageinfo>
+      <make>
+        <param>KERNEL_DIR=&kernel_src;</param>
+        <param>CC=avr32-linux-gcc</param>
+        <param>DO_IPV6=0</param>
+        <param>DESTDIR=&root_dir;</param>
+        <param>PREFIX=/usr</param>
+      </make>
+    </stage>
+    <stage name="Installing">
+      <stageinfo>
+        <base>&build_dir;/&iptables-directory;</base>
+      </stageinfo>
+      <make>
+        <param>install</param>
+        <param>KERNEL_DIR=&kernel_src;</param>
+        <param>CC=avr32-linux-gcc</param>
+        <param>DO_IPV6=0</param>
+        <param>DESTDIR=&root_dir;</param>
+        <param>PREFIX=/usr</param>
+      </make>
+    </stage>
+    <stage name="Strip">
+      <remove>&root_dir;/usr/man/man8</remove>
+    </stage>
+    <!--
+    <stage name="Cleanup">
+      <remove>&build_dir;/&iptables-directory;</remove>
+    </stage>
+    -->
+  </package>
+</alfs>

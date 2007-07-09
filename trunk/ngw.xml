@@ -20,6 +20,7 @@
     <xi:include href="stage2/busybox.xml" />
     <xi:include href="stage2/zlib.xml" />
     <xi:include href="stage2/dropbear.xml" />
+    <xi:include href="stage2/iptables.xml" />
   </stage>
   <stage name="Stage 3: creating image">
     <xi:include href="stage3/jffs2.xml" />
