@@ -21,43 +21,43 @@
     <textdump>
       <file>passwd</file>
         <content>
-root:$1$rsjkLsTU$zdulfnYQgyKmN3e0Fiw7C1:0:0:root:/:/bin/ash
-ftp::50:50:Anonymous FTP user:/home/ftp:/bin/ash
-www-data:x:51:51:www-data:/var/www:/bin/false
-sshd:x:110:65534:linux User,,,:/var/run/sshd:/bin/false
-avr32:$1$iPQqCZth$aB00EMq2M101iRqQU8d4v/:500:100:Linux User,,,:/home/avr32:/bin/ash
-nobody:x:65534:65534:nobody:/nonexistent:/bin/false
+          =root:$1$rsjkLsTU$zdulfnYQgyKmN3e0Fiw7C1:0:0:root:/:/bin/ash
+          =ftp::50:50:Anonymous FTP user:/home/ftp:/bin/ash
+          =www-data:x:51:51:www-data:/var/www:/bin/false
+          =sshd:x:110:65534:linux User,,,:/var/run/sshd:/bin/false
+          =avr32:$1$iPQqCZth$aB00EMq2M101iRqQU8d4v/:500:100:Linux User,,,:/home/avr32:/bin/ash
+          =nobody:x:65534:65534:nobody:/nonexistent:/bin/false
         </content>
     </textdump>
     <!-- =================================================================== -->    
     <textdump>
       <file>group</file>
         <content>
-root::0:
-bin:x:1:
-sys:x:2:
-tty:x:3:
-daemon:x:4:
-ftp::50:
-www-data::51:
-users::100:
-audio::101:
-nogroup::65534
+          =root::0:
+          =bin:x:1:
+          =sys:x:2:
+          =tty:x:3:
+          =daemon:x:4:
+          =ftp::50:
+          =www-data::51:
+          =users::100:
+          =audio::101:
+          =nogroup::65534
         </content>
     </textdump>
     <!-- =================================================================== -->    
     <textdump>
       <file>fstab</file>
         <content>
-/dev/mmcblk0p1   /media/sdcard		    ext2		  defaults		        0 0
-/dev/mtdblock3   /media/dataflash  	  jffs2		  defaults 		        0	0 
-proc             /proc	 			        proc		  defaults		        0	0
-none             /sys	 			          sysfs		  defaults		        0	0
-none             /dev/pts 			      devpts  	defaults		        0	0
-tmpfs            /dev/shm 			      tmpfs	 	  defaults		        0	0
-none             /var/log 			      tmpfs    	defaults		        0	0
-none             /tmp     			      tmpfs    	defaults,mode=1777	0	0
-none             /config  			      configfs  defaults		        0	0
+          =/dev/mmcblk0p1   /media/sdcard		    ext2		  defaults		        0 0
+          =/dev/mtdblock3   /media/dataflash  	  jffs2		  defaults 		        0	0 
+          =proc             /proc	 			        proc		  defaults		        0	0
+          =none             /sys	 			          sysfs		  defaults		        0	0
+          =none             /dev/pts 			      devpts  	defaults		        0	0
+          =tmpfs            /dev/shm 			      tmpfs	 	  defaults		        0	0
+          =none             /var/log 			      tmpfs    	defaults		        0	0
+          =none             /tmp     			      tmpfs    	defaults,mode=1777	0	0
+          =none             /config  			      configfs  defaults		        0	0
         </content>
     </textdump>
     <!-- =================================================================== -->    
@@ -71,52 +71,52 @@ none             /config  			      configfs  defaults		        0	0
     <textdump>
       <file>hosts</file>
         <content>
-127.0.0.1 localhost.localdomain localhost &hostname;
-10.0.0.1  &hostname;.&domain;
+          =127.0.0.1 localhost.localdomain localhost &hostname;
+          =10.0.0.1  &hostname;.&domain;
         </content>
     </textdump>
     <!-- =================================================================== -->    
     <textdump>
       <file>inetd.conf</file>
         <content>
-ftp		stream	tcp nowait	    root.root /usr/sbin/ftpd ftpd -a
-swat		stream	tcp nowait.400	root.root /usr/sbin/swat swat
+          =ftp		stream	tcp nowait	    root.root /usr/sbin/ftpd ftpd -a
+          =swat		stream	tcp nowait.400	root.root /usr/sbin/swat swat
         </content>
     </textdump>
     <!-- =================================================================== -->    
     <textdump>
       <file>shells</file>
         <content>
-# /etc/shells: valid login shells
-/bin/ash
-/bin/sh
-/bin/zsh
-/bin/bash
-/usr/bin/zsh
-/usr/bin/bash
-/usr/bin/screen
+          =# /etc/shells: valid login shells
+          =/bin/ash
+          =/bin/sh
+          =/bin/zsh
+          =/bin/bash
+          =/usr/bin/zsh
+          =/usr/bin/bash
+          =/usr/bin/screen
         </content>
     </textdump>
-    <!-- =================================================================== -->    
+    <!-- =================================================================== -->
     <textdump>
       <file>inittab</file>
         <content>
-::sysinit:/etc/init.d/rcS
-
-# This will run a shell on the console, usually located on ttyS0. Should not be
-# used since Ctrl+C and similar will not work.
-ttyS0::respawn:-/bin/sh
-
-# Prompts logins on ttyS0 (ask user for login and password), console above must
-# be disabled before this is enabled.
-#ttyS0::respawn:/sbin/getty -L 115200 ttyS0
-# Prompts logins on ttyS2 (ask user for login and password)
-#ttyS2::respawn:/sbin/getty -L 115200 ttyS2
-
-::restart:/sbin/init
-
-# When shutting down, unmount filesystems.
-::shutdown:/bin/umount -a -r
+          =::sysinit:/etc/init.d/rcS
+          =
+          =# This will run a shell on the console, usually located on ttyS0. Should not be
+          =# used since Ctrl+C and similar will not work.
+          =ttyS0::respawn:-/bin/sh
+          =
+          =# Prompts logins on ttyS0 (ask user for login and password), console above must
+          =# be disabled before this is enabled.
+          =#ttyS0::respawn:/sbin/getty -L 115200 ttyS0
+          =# Prompts logins on ttyS2 (ask user for login and password)
+          =#ttyS2::respawn:/sbin/getty -L 115200 ttyS2
+          =
+          =::restart:/sbin/init
+          =
+          =# When shutting down, unmount filesystems.
+          =::shutdown:/bin/umount -a -r
         </content>
     </textdump>
     <!-- =================================================================== -->    
@@ -124,6 +124,22 @@ ttyS0::respawn:-/bin/sh
       <file>resolv.conf</file>
         <content>
           =
+        </content>
+    </textdump>
+    <!-- =================================================================== -->    
+    <textdump>
+      <file>modules</file>
+        <content>
+          =vfat
+          =mmc_block
+          =atmel-mci
+          =
+          =# Uncomment g_file_storage to add mass-storage on USB
+          =#
+          =# WARNING: Remember to unmount the SD-card before probing g_file_storage.
+          =#          Failing to unmount before probing g_file_storage can corrupt
+          =#          your SD-card when accessed through the USB.
+          =#g_file_storage file=/dev/mmcblk0p1 removable=1
         </content>
     </textdump>
     <!-- =================================================================== -->    
