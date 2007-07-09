@@ -14,10 +14,8 @@
     <mkdir>
       <option>parents</option>
       <name>&root_dir;</name>
-    </mkdir>
-    <mkdir>
-      <option>parents</option>
       <name>&build_dir;</name>
+      <name>&download_dir;</name>
     </mkdir>
     <mkdir base="&root_dir;">
       <option>parents</option>
@@ -66,21 +64,9 @@
       <name>doc</name>
       <name>info</name>
       <name>locale</name>
-      <name>man</name>
       <name>misc</name>
       <name>terminfo</name>
       <name>zoneinfo</name>
-    </mkdir>
-    <mkdir base="&root_dir;/usr/share/man">
-      <option>parents</option>
-      <name>man1</name>
-      <name>man2</name>
-      <name>man3</name>
-      <name>man4</name>
-      <name>man5</name>
-      <name>man6</name>
-      <name>man7</name>
-      <name>man8</name>
     </mkdir>
     <mkdir base="&root_dir;/var">
       <option>parents</option>

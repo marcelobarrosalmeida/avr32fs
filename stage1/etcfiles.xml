@@ -142,6 +142,15 @@
           =#g_file_storage file=/dev/mmcblk0p1 removable=1
         </content>
     </textdump>
-    <!-- =================================================================== -->    
+     <!-- =================================================================== -->    
+    <execute command="echo">
+      <param>-n "NGW100 &root_version; built in "</param>
+      <param> > release</param>
+    </execute>
+    <execute command="date">
+      <param>'+%a, %x %X'</param>
+      <param> >> release</param>
+    </execute>
+   <!-- =================================================================== -->    
   </stage>
 </alfs>

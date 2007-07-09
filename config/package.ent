@@ -137,3 +137,9 @@
 <!ENTITY dropbear-directory "dropbear-&dropbear-version;">
 
 <!ENTITY dropbear-dropbear-add-avr32-to-configure-patch "dropbear-add-avr32-to-configure.patch">
+
+<!ENTITY iptables-md5 "077e886a9c90a11bb47f3d7a4fc4a689">
+<!ENTITY iptables-version "1.3.6">
+<!ENTITY iptables-package "iptables-&iptables-version;.tar.bz2">
+<!ENTITY iptables-directory "iptables-&iptables-version;">
+<!ENTITY iptables-url "http://www.netfilter.org/projects/iptables/files/">

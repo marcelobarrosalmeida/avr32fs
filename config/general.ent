@@ -17,6 +17,9 @@
 <!-- Specify alternative URL (for wget) if packages_dir fails -->
 <!ENTITY repository_url "file://&packages_dir;">
 
+<!-- Local directory where packages download from internet are saved -->
+<!ENTITY download_dir "&base_dir;/download">
+
 <!-- Specify where packages will be compiled -->
 <!ENTITY build_dir "&base_dir;/build/&root_version;">
 
