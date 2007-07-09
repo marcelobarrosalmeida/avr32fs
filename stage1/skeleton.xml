@@ -45,11 +45,12 @@
       <name>init.d</name>
       <name>network</name>
       <name>default</name>
+      <name>dropbear</name>
     </mkdir>
     <mkdir base="&root_dir;/dev">
       <option>parents</option>
       <name>pts</name>
-      <name>chm</name>
+      <name>shm</name>
     </mkdir>
     <mkdir base="&root_dir;/usr">
       <option>parents</option>
