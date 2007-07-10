@@ -10,3 +10,4 @@ AVR32 from Scratch Build System (avr32fs) uses nALFS to automate the process of 
   * [Screenshots]
 
 *Contact:* Marcelo Barros de Almeida (`marcelobarrosalmeida<at>gmail<dot>com`)
+
