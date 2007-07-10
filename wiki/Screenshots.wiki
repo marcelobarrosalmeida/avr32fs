@@ -1,0 +1,12 @@
+#summary Screenshots
+
+== Screenshots ==
+
+Yep, people like screenshots, so we have some here. Not so nice, not so colorfull, but screenshots
+
+=== NGW100 XML loaded by nALFS ===
+
+Here we can see the NGW100 XML loaded by nALFS. Note the 3 stages expanded.
+
+http://avr32fs.googlecode.com/files/avr32fs-xml-loadded.png
+
