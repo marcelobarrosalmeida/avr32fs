@@ -10,7 +10,7 @@ Here we can see the NGW100 XML loaded by nALFS. Note the 3 stages expanded.
 
 http://avr32fs.googlecode.com/files/avr32fs-xml-loadded.png
 
-=== nAFLS execution NGW100 build file ===
+=== nAFLS executing NGW100 build file ===
 
 http://avr32fs.googlecode.com/files/avr32ds-running.png
 
@@ -21,4 +21,3 @@ http://avr32fs.googlecode.com/files/avr32fs-theend.png
 === Busybox compilation details ===
 
 http://avr32fs.googlecode.com/files/avr32fs-busybox-detailed.png
-
