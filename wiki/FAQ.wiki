@@ -1,7 +1,7 @@
 #summary Frequent Answered Questions
 
   * *Why avr32fs ?* 
-After playing with build script provided by Atmel and with python script provided by Correa I spent some days thinking how to obtain a flexible tool for creating the root files system. In Linux From Scratch (LFS) page I found nAFLS, a program used to build LFS projects. nAFLS builds an entire system just using rules that comes from XML files. Although I am not a big XML enthusiast, nAFLS seemed flexible enough for creating the root file system. Moreover, I think it is simple to modify/extend and it has a good console interface (good log, compilation progress, and so on).
+After playing with build script provided by Atmel and with python script provided by Correa I spent some days thinking how to obtain a flexible tool for creating the root files system. In Linux From Scratch (LFS) page I found nALFS, a program used to build LFS projects. nAFLS builds an entire system just using rules that comes from XML files. Although I am not a big XML enthusiast, nAFLS seemed flexible enough for creating the root file system. Moreover, I think it is simple to modify/extend and it has a good console interface (good log, compilation progress, and so on).
 
 Using nALFS, I created an initial set of XML files for building an NGW100 image (just linux, dropbear, zlib, uclib and busybox). With some modifications it can be used for STK1000 as well.
 
