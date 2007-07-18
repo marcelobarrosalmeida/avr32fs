@@ -1,6 +1,6 @@
 #summary Screenshots
 
-| [Using] | [Download] | [FAQ] | Screenshots |
+| [MainPage] | [Using] | [Download] | [FAQ] | Screenshots |
 
 == Screenshots ==
 
