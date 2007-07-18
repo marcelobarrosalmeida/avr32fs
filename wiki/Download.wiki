@@ -1,5 +1,7 @@
 #summary Download instructions
 
+| [MainPage] | [Using] | Download | [FAQ] | [Screenshots] |
+
 == Packages ==
 
   * Latest build: [http://avr32fs.googlecode.com/files/avr32fs-current.tar.gz avr32fs-current.tar.gz]
