@@ -1,6 +1,6 @@
 #summary Wiki main page
 
-| MainPage | [Using] | [Download] | [FAQ] | [Screenshots] |
+| !MainPage | [Using] | [Download] | [FAQ] | [Screenshots] |
 
 = avr32fs =
 
