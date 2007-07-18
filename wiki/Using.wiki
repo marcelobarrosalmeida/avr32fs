@@ -1,5 +1,7 @@
 #summary Usage instructions for avr32fs
 
+| [MainPage] | Using | [Download] | [FAQ] | [Screenshots] |
+
 === Before using avr32fs ===
 
   * Install nALFS. The current profile was tested  using nALFS 1.2.6, downloaded from: http://www.linuxfromscratch.org/alfs/downloads/stable/nALFS-1.2.6.tar.bz2
@@ -40,6 +42,5 @@ In this version there is only one skel directory. More may appear in future.
   * All packages and its patches are listed inside config/package.ent
   * Scripts/series2xml.py may help conversion from series (patch files list) to xml
   * Read nALFS DTD documentation for creating/modifying xml: http://www.linuxfromscratch.org/alfs/view/dtd/
-
 
 
